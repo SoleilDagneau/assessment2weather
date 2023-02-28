@@ -7,7 +7,7 @@ import Link from 'next/link';
 
 export default function Home() {
 
-  const apiKey = 'cbd83d03fd51593f0af105201d308067';
+  const apiKey = process.env.NEXT_PUBLIC_WEATHER_API;
   const location = 'vancouver';
   const units = 'metric';
   const url = `https://api.openweathermap.org/data/2.5/forecast?q=${location}&units=${units}&appid=${apiKey}`;
