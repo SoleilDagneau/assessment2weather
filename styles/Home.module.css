@@ -10,8 +10,20 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: monospace;
+  font-size: 14px;
+  background-color: #12263A;
+  color: white;
   
+}
+
+.item1{
+  padding-top: 5px;
+
+}
+
+.itemspace {
+  padding-top: 5px;
 }
 
 .footer {
@@ -73,6 +85,30 @@
   justify-content: center;
   flex-wrap: wrap;
   max-width: 800px;
+
+}
+
+.itemcont {
+  background-color: rgba(255, 255, 255, 0.05);
+  margin: 20px;
+  width: 200px;
+  height: 250px;
+  text-align: center;
+  padding-top: 20px;
+  box-shadow: 2px 2px 4px rgba(168, 213, 226, 0.5);
+  border-radius: 20%;
+  
+}
+
+.itemcont:hover {
+  box-shadow: 10px 10px 12px rgba(168, 213, 226, 0.5);
+  
+}
+.link {
+  padding-top: 40px;
+}
+.link:hover {
+  color: rgba(168, 213, 226);
 }
 
 .card {

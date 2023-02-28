@@ -3,6 +3,7 @@ import Image from 'next/image'
 import { useEffect, useRef, useState } from 'react';
 import styles from '../styles/Home.module.css';
 import axios from 'axios';
+import Link from 'next/link';
 
 export default function Home() {
 
@@ -59,19 +60,19 @@ export default function Home() {
         }
 
         if(weather.weather[0].main == 'Clouds') {
-          icon = '/icons/broken-clouds.png'
+          icon = '/icons/clouds.png'
         }else if(weather.weather[0].main == 'Clear') {
-          icon = '/icons/clear-sky.png'
+          icon = '/icons/clear.png'
         }else if(weather.weather[0].main == 'Atmosphere') {
           icon = '/icons/mist.png'
         }else if(weather.weather[0].main == 'Rain') {
           icon = '/icons/rain.png'
         }else if(weather.weather[0].main == 'Drizzle') {
-          icon = '/icons/shower-rain.png'
+          icon = '/icons/drizzle.png'
         }else if(weather.weather[0].main == 'Snow') {
           icon = '/icons/snow.png'
         }else if(weather.weather[0].main == 'Thunderstorm') {
-          icon = '/icons/thunderstorm.png'
+          icon = '/icons/thunder.png'
         }
 
         var now = new Date(weather.dt_txt);
@@ -79,19 +80,16 @@ export default function Home() {
         var day = days[now.getDate()];
 
         return (
-          <div  key={index} >
-             <Image
-              src={icon}
-              alt="logo"     
-              width={120}
-              height={120}
-              priority
-                  />
-                   <p>
+          
+          <div  key={index} className={styles.itemcont}>
+
+            <img src={icon} className={styles.item1}/>
+             
+                   <p className={styles.itemspace}>
                   {day} <br/> {month} {weather.dt_txt.substr(8,2)}, {weather.dt_txt.substr(0,4)}
                 </p>
-                <div>{weather.main.temp.toFixed(1)} &#8451;</div>
-                <div>{weather.weather[0].main}</div>
+                <div className={styles.itemspace}>{weather.main.temp.toFixed(1)} &#8451;</div>
+                <div className={styles.itemspace}>{weather.weather[0].main}</div>
 
           </div>
         )
@@ -119,23 +117,26 @@ export default function Home() {
 
     <>
     <Head>
-
+    <link rel="icon" href="/favicon.ico" />
     </Head>
     <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Vancouver, BC. weather
+    <p>
+          Vancouver, BC. Weather
           Last Update: {date}
         </p>
-        <div>
-          <a>
-            by Soleil Dagneau
-          </a>
-        </div>
+      <div className={styles.description}>
+        <Image src='/logo.png' width='350' height='200'/>
+        
+        
       </div>
     <div className={styles.grid}>
       {data}
     </div>
+
+    <div className={styles.link}>
+          <Link href="https://soleildagneau.ca">by Soleil Dagneau</Link>
+      
+        </div>
     </main>
    
     </>
